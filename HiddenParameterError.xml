@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+  <category>Examples</category>
+  <title>HiddenParameterError</title>
+  <description><![CDATA[This is an example of an issue that creates an error message.  To run, set parameters besides Input VOI Volume and apply.]]></description>
+  <version>0.0.1</version>
+  <license>Slicer</license>
+  <acknowledgements>This work was partially funded by NIH grant 3P41RR013218-12S1</acknowledgements>
+  <parameters>
+    <double>
+      <name>sigma</name>
+      <longflag>sigma</longflag>
+      <flag>s</flag>
+      <label>Sigma</label>
+      <description><![CDATA[Sigma value in physical units (e.g., mm) of the Gaussian kernel]]></description>
+      <default>1.0</default>
+    </double>
+    <label>IO</label>
+    <description><![CDATA[Input/output parameters]]></description>
+    <image>
+      <name>inputVolume</name>
+      <label>Input Volume</label>
+      <channel>input</channel>
+      <index>0</index>
+      <description><![CDATA[Input volume]]></description>
+    </image>
+    <image type="label">
+      <name>VOIVolume</name>
+      <label>Input VOI Volume</label>
+      <channel>input</channel>
+      <flag>-l</flag>
+      <longflag>--labelMap</longflag>
+      <description><![CDATA[Leave blank to encounter error.]]></description>
+    </image>
+    <table hidden="true" type="color" reference="VOIVolume">
+      <name>ColorTable</name>
+      <channel>input</channel>
+      <longflag>--color</longflag>
+      <description><![CDATA[Color table to to map labels to colors and names]]></description>
+    </table>
+    <image>
+      <name>outputVolume</name>
+      <label>Output Volume</label>
+      <channel>output</channel>
+      <index>1</index>
+      <description><![CDATA[Blurred Volume]]></description>
+    </image>
+  </parameters>
+</executable>
